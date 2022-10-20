@@ -1,0 +1,54 @@
+doctype html
+html( lang="en" )
+    head
+        meta( charset="utf-8" )
+        meta( name="viewport", content="width=device-width, initial-scale=1.0" )
+        title New Year 2023
+        link( rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins&display=swap" )
+        link( rel="stylesheet", href="/static/css/style.css" )
+    body
+        header
+            h1 Happy New Year
+            h1#year
+                span 202
+                span 3
+        
+        div#countdown
+            div.time-left
+                h2 Days
+                h1#days 0
+            div.time-left
+                h2 Hours
+                h1#hours 0
+            div.time-left
+                h2 Mins
+                h1#minutes 0
+            div.time-left
+                h2 Secs
+                h1#seconds 0
+        
+        form#form-message( method="post", action="/message" )
+            label( for="name" ) Your name
+            input( type="text", name="name", required )
+            textarea( name="message", rows="7",  placeholder="Your message to the world...\n\nshould be less than 200 words", required )
+            button( type="submit" ) send
+        
+        div#messages
+            each message in data
+                div.message
+                    q= message.dataValues.text
+                    p
+                        span — #{ message.dataValues.name }
+                        br
+                        - time = Date.now() - message.dataValues.time
+                        span= (time < 60000) ? "just now" : (time < 3600000) ? Math.floor(time/60000)+" min ago" : (time < 86400000) ? Math.floor(time/3600000)+" hour ago" : (time < 2505600000) ? Math.floor(time/86400000)+" days ago" : (time < 31536000000) ? Math.floor(time/2505600000)+" month ago" : Math.floor(time/31536000000)+" year ago"
+        
+        script( type="text/javascript", src="/static/js/script.js" )
+        script( type="text/javascript" ).
+        
+            var days = document.getElementById("days");
+            var hours = document.getElementById("hours");
+            var minutes = document.getElementById("minutes");
+            var seconds = document.getElementById("seconds");
+            
+            updateCountdown();

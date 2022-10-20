@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 10px 0;
+    background: gold;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+header #year span:first-child {
+    font-size: 50px;
+}
+header #year span:last-child {
+    font-size: 60px;
+}
+
+#countdown {
+    background: #598baf;
+    font-family: "Poppins", sans-serif;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+}
+#countdown .time-left {
+    color: white;
+    text-align: center;
+}
+
+#form-message {
+    padding: 7.5% 10%;
+}
+#form-message * {
+    font-size: 16px;
+    font-family: "Comfortaa", cursive;
+}
+#form-message input, #form-message textarea {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    box-sizing: border-box;
+}
+#form-message textarea {
+    font-size: 14px;
+    resize: none;
+}
+#form-message button {
+    padding: 7.5px 12.5px;
+}
+
+#messages {
+    padding: 5px 5% 5% 5%;
+    font-size: 14px;
+    display: flex;
+    gap: 10%;
+    overflow-x: scroll;
+}
+#messages::-webkit-scrollbar {
+    display: none;
+}
+#messages .message {
+    padding: 20px 20px 10px 20px;
+    min-width: 75%;
+    height: 150px;
+    background: #eee;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Comfortaa", cursive;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+}
+#messages .message q {
+    flex-grow: 1;
+}
+#messages .message p {
+    text-align: right;
+}
+#messages .message p span:last-child {
+    font-size: 13px;
+    color: #3d3d3d;
+}
